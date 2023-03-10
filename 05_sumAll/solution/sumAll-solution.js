@@ -1,16 +1,18 @@
-const sumAll = function (min, max) {
-  if (!Number.isInteger(min) || !Number.isInteger(max)) return "ERROR";
-  if (min < 0 || max < 0) return "ERROR";
-  if (min > max) {
-    const temp = min;
-    min = max;
-    max = temp;
+const sumAll = (int1, int2) => {
+  let sumTotal = 0;
+  if ((int1 < 0 || int2 < 0) || (typeof int1 != "number" || typeof int2 != "number")) {
+    console.log("ERROR")
+  } else if (int1 > int2) {
+    for (let i = int2; i <= int1; i++) {
+      sumTotal += i;
+    }
+    return sumTotal;
+  } else {
+    for (let i = int1; i <= int2; i++) {
+      sumTotal += i;
+    }
+    return sumTotal;
   }
-  let sum = 0;
-  for (let i = min; i < max + 1; i++) {
-    sum += i;
-  }
-  return sum;
 };
 
 module.exports = sumAll;
